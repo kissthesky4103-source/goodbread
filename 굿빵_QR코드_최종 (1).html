@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>굿빵 입점신청서 QR코드</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background:#F5F0EB; display:flex; justify-content:center; align-items:flex-start; min-height:100vh; padding:40px 20px; }
+.card { background:white; border-radius:20px; padding:40px; max-width:480px; width:100%; box-shadow:0 8px 40px rgba(0,0,0,0.12); text-align:center; }
+.logo { font-size:28px; font-weight:800; color:#7B4E2A; margin-bottom:4px; letter-spacing:-1px; }
+.logo span { color:#B8844A; }
+.tagline { font-size:13px; color:#9A8070; margin-bottom:28px; }
+.qr-wrapper { display:flex; justify-content:center; margin-bottom:24px; }
+#qrcode { border:3px solid #F3E9DC; border-radius:12px; padding:12px; display:inline-block; }
+#qrcode img, #qrcode canvas { border-radius:6px; }
+.title { font-size:20px; font-weight:700; color:#2C2C2A; margin-bottom:8px; }
+.desc { font-size:13px; color:#7A7268; line-height:1.7; margin-bottom:24px; }
+.conditions { background:#F0FFF4; border:1px solid #A8E6C0; border-radius:12px; padding:14px 16px; margin-bottom:24px; text-align:left; }
+.conditions p { font-size:12px; font-weight:700; color:#1B5E20; margin-bottom:6px; }
+.conditions ul { list-style:none; }
+.conditions li { font-size:12px; color:#2E7D32; line-height:1.8; }
+.conditions li::before { content:"✓ "; font-weight:700; }
+.print-btn { background:#7B4E2A; color:white; border:none; border-radius:10px; padding:13px 28px; font-size:15px; font-weight:700; cursor:pointer; width:100%; margin-bottom:10px; }
+.print-btn:hover { background:#B8844A; }
+.slogan { font-size:13px; color:#B8844A; font-weight:600; margin-top:8px; }
+@media print {
+  body { background:white; padding:20px; }
+  .card { box-shadow:none; }
+  .print-btn { display:none; }
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">굿<span>빵</span> GoodBread</div>
+  <div class="tagline">대한민국 장인 베이커리 플랫폼</div>
+
+  <div class="qr-wrapper">
+    <div id="qrcode"></div>
+  </div>
+
+  <div class="title">굿빵 플랫폼 입점 신청서</div>
+  <div class="desc">QR코드를 스캔하면 입점 신청서로 바로 연결됩니다.<br>스마트폰 카메라로 촬영해 주세요.</div>
+
+  <div class="conditions">
+    <p>입점 전제 조건</p>
+    <ul>
+      <li>국가공인 장인 자격 보유 (기능장·명장·명인)</li>
+      <li>우유버터 사용</li>
+      <li>천연 발효종 사용</li>
+      <li>동물성 생크림 사용</li>
+    </ul>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">인쇄하기</button>
+  <div class="slogan">YOU NEED, I WILL 🍞</div>
+</div>
+
+<script>
+new QRCode(document.getElementById("qrcode"), {
+  text: "https://docs.google.com/forms/d/e/1FAIpQLSfvwjeGFp2iM7Pngkk0Ku3iFRjb5ub6FTKWzFPurmzV9IsO4Q/viewform",
+  width: 240,
+  height: 240,
+  colorDark: "#7B4E2A",
+  colorLight: "#ffffff",
+  correctLevel: QRCode.CorrectLevel.H
+});
+</script>
+</body>
+</html>
